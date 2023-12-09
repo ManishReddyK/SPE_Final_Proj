@@ -1,0 +1,74 @@
+pipeline
+{
+    agent any
+    environment
+    {
+        // Path = "/usr/local/bin/minikube:${PATH}"
+        // registry = "akhiltavva/"
+        registryCredential = "DockerHubCred"
+        dockerImage = ""
+    }
+    stages
+    {
+        stage('Clone Git'){
+            steps{
+                git branch: 'master',
+                url:'https://github.com/Akhil-Tavva/SPE-Final-Project.git'
+            }
+        }
+        stage('Build Frontend Image'){
+            steps
+            {
+                dir("frontend/")
+                {
+                    // sh "npm install"
+                    // sh "npm run build"
+                    sh "docker build -t akhiltavva/frontend:latest ."
+                }
+            }
+        }
+        stage('Build Backend Image'){
+            steps
+            {
+                dir("backend/")
+                {
+                    sh "mvn clean install"
+                    sh "docker build -t akhiltavva/backend:latest ."
+                }
+            }
+        }
+        stage('Frontend DockerHub Image Push')
+        {
+            steps
+            {
+                script
+                {
+                    docker.withRegistry('', registryCredential)
+                    {
+                        sh "docker push akhiltavva/frontend:latest"
+                    }
+                }
+            }
+        }
+        stage('Backend DockerHub Image Push')
+        {
+            steps
+            {
+                script
+                {
+                    docker.withRegistry('', registryCredential)
+                    {
+                        sh "docker push akhiltavva/backend:latest"
+                    }
+                }
+            }
+        }
+        stage('Ansible Deployment'){
+            steps{
+                script{
+                    sh 'ansible-playbook -i inventory playbook.yml'
+                }
+            }
+        }
+    }
+}
