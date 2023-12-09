@@ -1,3 +1,2 @@
-[localhost]
+[host_machine]
 localhost ansible_user=SSH
-#localhost ansible_connection=local
