@@ -1,2 +1,2 @@
 [host_machine]
-localhost ansible_connection=local
+localhost ansible_connection=manish
