@@ -4,8 +4,8 @@ services:
     image: manish3693/frontend:latest
     ports:
       - '3000:3000'
-    depends_on:
-      - backend
+    # depends_on:
+    #   - backend
   # backend:
   #   image: manish3693/backend:latest
   #   ports:
