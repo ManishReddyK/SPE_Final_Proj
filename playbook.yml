@@ -1,7 +1,7 @@
 ---
 - name: Deploy Delivery Application
   hosts: all
-  become: true
+  # become: true
   vars:
     ansible_python_interpreter: /usr/bin/python3
     #ansible_become_pass: 'Akhil@0124'

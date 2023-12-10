@@ -6,50 +6,30 @@ services:
       - '3000:3000'
     depends_on:
       - backend
+
   backend:
     image: manish3693/backend:latest
     ports:
-      - '9090:9090'
+      - '9091:9090'
+    depends_on:
+      - database
     environment:
-      # - MONGO=mongodb+srv://chirag:chirag@cluster0.xxq7wug.mongodb.net/doctor_app?retryWrites=true&w=majority
-      - JWT=a1cd158e2b34d47af6d0b446f59a326849f0dd8eb7ac51244f4ab4c1cb99552b9f856a8fb488f20fdbf0d489fc93b4d94fb71148a1bd24e2386a6c71e4d8a3cd
+      - DB_HOST=localhost:3306/courier_delivery?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
+      - DB_NAME=courier_delivery
+      - DB_USERNAME=root
+      - DB_PASSWORD=
+    
+  database:
+    image: mysql:latest
+    ports:
+      - '3307:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: your_mysql_root_password
+      MYSQL_DATABASE: your_database_name
+      MYSQL_USER: your_mysql_username
+      MYSQL_PASSWORD: your_mysql_password
+    volumes:
+      - db_data:/var/lib/mysql  # Persist data to avoid losing database state
 
-# version: '3'
-
-# services:
-#   frontend:
-#     container_name: react_frontend
-#     image: manish3693/frontend:latest
-#     ports:
-#       - '3000:3000'
-#     depends_on:
-#       - backend
-
-#   backend:
-#     container_name: springboot_backend
-#     image: manish3693/backend:latest
-#     ports:
-#       - "9090:9090"  # Map local port to container port
-#     depends_on:
-#       - database  # Ensure database service is available
-#     environment:
-#       SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/courier_delivery?useSSL=false&serverTimezone=UTC
-#       SPRING_DATASOURCE_USERNAME: cms
-#       SPRING_DATASOURCE_PASSWORD: root
-
-#   # MySQL Database service
-#   database:
-#     container_name: mysql_db
-#     image: mysql:latest
-#     ports:
-#       - "3306:3306"  # Map local port to container port
-#     environment:
-#       MYSQL_ROOT_PASSWORD: root
-#       MYSQL_DATABASE: cms
-#       MYSQL_USER: your_mysql_ucmssername
-#       MYSQL_PASSWORD: root
-#     volumes:
-#       - db_data:/var/lib/mysql  # Persist data to avoid losing database state
-
-# volumes:
-#   db_data:
+volumes:
+  db_data:
