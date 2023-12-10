@@ -17,29 +17,25 @@ services:
 # version: '3'
 
 # services:
-#   # Frontend service for React.js
 #   frontend:
 #     container_name: react_frontend
-#     build:
-#       context: ./frontend  # Path to your React.js app Dockerfile
+#     image: manish3693/frontend:latest
 #     ports:
-#       - "3000:3000"  # Map local port to container port
+#       - '3000:3000'
 #     depends_on:
-#       - backend  # Ensure backend service is available
+#       - backend
 
-#   # Backend service for Spring Boot
 #   backend:
 #     container_name: springboot_backend
-#     build:
-#       context: ./backend  # Path to your Spring Boot app Dockerfile
+#     image: manish3693/backend:latest
 #     ports:
-#       - "8080:8080"  # Map local port to container port
+#       - "9090:9090"  # Map local port to container port
 #     depends_on:
 #       - database  # Ensure database service is available
 #     environment:
-#       SPRING_DATASOURCE_URL: jdbc:mysql://database:3306/your_database_name?useSSL=false&serverTimezone=UTC
-#       SPRING_DATASOURCE_USERNAME: your_mysql_username
-#       SPRING_DATASOURCE_PASSWORD: your_mysql_password
+#       SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/courier_delivery?useSSL=false&serverTimezone=UTC
+#       SPRING_DATASOURCE_USERNAME: cms
+#       SPRING_DATASOURCE_PASSWORD: root
 
 #   # MySQL Database service
 #   database:
@@ -48,10 +44,10 @@ services:
 #     ports:
 #       - "3306:3306"  # Map local port to container port
 #     environment:
-#       MYSQL_ROOT_PASSWORD: your_mysql_root_password
-#       MYSQL_DATABASE: your_database_name
-#       MYSQL_USER: your_mysql_username
-#       MYSQL_PASSWORD: your_mysql_password
+#       MYSQL_ROOT_PASSWORD: root
+#       MYSQL_DATABASE: cms
+#       MYSQL_USER: your_mysql_ucmssername
+#       MYSQL_PASSWORD: root
 #     volumes:
 #       - db_data:/var/lib/mysql  # Persist data to avoid losing database state
 
