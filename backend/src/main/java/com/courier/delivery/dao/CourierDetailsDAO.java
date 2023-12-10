@@ -10,4 +10,6 @@ public interface CourierDetailsDAO extends JpaRepository<CourierDetails, Long> {
     List<CourierDetails> findByAgent_Id(Long id);
     List<CourierDetails> findByAgent(User agent);
     List<CourierDetails> findByUser(User user);
+
+    List<CourierDetails> findAll();
 }
