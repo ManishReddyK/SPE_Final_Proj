@@ -990,9 +990,9 @@ handlePayentModeInput=()=>{
                                         <TableCell align="center" style={{ width: 100 }}>
                                           {data.amount}
                                         </TableCell>
-                                        <TableCell align="center" style={{ width: 100 }}>
+                                        {/* <TableCell align="center" style={{ width: 100 }}>
                                           {data.weight}
-                                        </TableCell>
+                                        </TableCell> */}
                                         <TableCell align="center" style={{ width: 100 }}>
                                           {data.status}
                                         </TableCell>
