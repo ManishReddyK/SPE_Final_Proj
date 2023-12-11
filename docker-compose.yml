@@ -23,12 +23,12 @@ services:
     ports:
       - '3307:3306'
     environment:
-      MYSQL_HOST: localhost
+      # MYSQL_HOST: localhost
       MYSQL_PORT: 3307
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: courier_delivery
       MYSQL_USER: root
-      MYSQL_PASSWORD: manu3693
+      MYSQL_PASSWORD: root
     volumes:
       - db_data:/var/lib/mysql  # Persist data to avoid losing database state
 
