@@ -3,7 +3,7 @@ services:
   frontend:
     image: manish3693/frontend:latest
     ports:
-      - '3001:3000'
+      - '3000:3000'
     depends_on:
       - backend
 
@@ -16,17 +16,19 @@ services:
     environment:
       - DB_NAME=courier_delivery
       - DB_USERNAME=root
-      - DB_PASSWORD=root
+      - DB_PASSWORD=
     
   database:
     image: mysql:latest
     ports:
       - '3307:3306'
     environment:
+      MYSQL_HOST: localhost
+      MYSQL_PORT: 3307
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: courier_delivery
-      MYSQL_USER: root
-      MYSQL_PASSWORD: manu3693
+      # MYSQL_USER: root
+      # MYSQL_PASSWORD: manu3693
     volumes:
       - db_data:/var/lib/mysql  # Persist data to avoid losing database state
 
