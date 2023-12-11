@@ -1,10 +1,8 @@
 ---
 - name: Deploy Delivery Application
   hosts: all
-  # become: true
   vars:
     ansible_python_interpreter: /usr/bin/python3
-    #ansible_become_pass: 'Akhil@0124'
 
   tasks:
     - name: Copy Docker Compose file
@@ -12,6 +10,9 @@
         src: docker-compose.yml
         dest: "docker-compose.yml"
 
+    - name: Set Docker Context to desktop-linux
+      command: docker context use desktop-linux
+      ignore_errors: yes
+
     - name: Run Docker Compose
       command: docker-compose up -d
-
