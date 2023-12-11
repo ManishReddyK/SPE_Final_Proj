@@ -935,13 +935,13 @@ handlePayentModeInput=()=>{
                                   >
                                     Amount
                                   </TableCell>
-
+{/* 
                                   <TableCell
                                     align="center"
                                     style={{ width: 210, fontWeight: 600, fontSize: 15 }}
                                   >
                                     Weight
-                                  </TableCell>
+                                  </TableCell> */}
                                   <TableCell
                                     align="center"
                                     style={{ width: 210, fontWeight: 600, fontSize: 15 }}
