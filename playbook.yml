@@ -10,9 +10,5 @@
         src: docker-compose.yml
         dest: "docker-compose.yml"
 
-    - name: Set Docker Context to desktop-linux
-      command: docker context use desktop-linux
-      ignore_errors: yes
-
     - name: Run Docker Compose
       command: docker-compose up -d
