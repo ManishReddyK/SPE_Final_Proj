@@ -988,7 +988,7 @@ handlePayentModeInput=()=>{
 
                                         </TableCell>
                                         <TableCell align="center" style={{ width: 100 }}>
-                                          {data.amount}
+                                          {data.amount/1000}
                                         </TableCell>
                                         {/* <TableCell align="center" style={{ width: 100 }}>
                                           {data.weight}
