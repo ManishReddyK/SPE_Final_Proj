@@ -14,19 +14,19 @@ services:
     depends_on:
       - database
     environment:
-      - DB_NAME=courier_delivery
-      - DB_USERNAME=root
-      - DB_PASSWORD=
+      - MYSQL_HOST=database
+      - MYSQL_PORT=3306
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=root
     
   database:
     image: mysql:latest
     ports:
-      - '3307:3306'
+      - '3306:3306'
     environment:
       # MYSQL_HOST: localhost
-      MYSQL_PORT: 3307
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: courier_delivery
+      # MYSQL_PORT: 3306
+      # MYSQL_ROOT_PASSWORD: root
       MYSQL_USER: root
       MYSQL_PASSWORD: root
     volumes:
