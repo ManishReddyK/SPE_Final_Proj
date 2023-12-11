@@ -21,10 +21,10 @@ services:
   database:
     image: mysql:latest
     ports:
-      - '3306:3306'
+      - '3307:3306'
     environment:
       MYSQL_HOST: localhost
-      MYSQL_PORT: 3306
+      MYSQL_PORT: 3307
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: courier_delivery
       MYSQL_USER: root
