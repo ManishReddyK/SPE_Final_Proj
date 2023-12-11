@@ -23,8 +23,6 @@ services:
     ports:
       - '3307:3306'
     environment:
-      MYSQL_HOST: localhost
-      MYSQL_PORT: 3307
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: courier_delivery
       MYSQL_USER: root
