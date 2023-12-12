@@ -1124,7 +1124,7 @@ class AdminDashboard extends Component {
                                               {data.paymentMode}
                                             </TableCell>
                                             <TableCell align="center" style={{ width: 100 }}>
-                                              {data.amount/1000}
+                                              {data.amount}
                                             </TableCell>
 
 

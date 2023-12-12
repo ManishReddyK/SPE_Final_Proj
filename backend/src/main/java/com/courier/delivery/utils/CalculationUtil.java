@@ -23,7 +23,7 @@ public final class CalculationUtil {
             if(weight > 1500 && weight <=5500 )
                 return RATE_TO_2500 * (weight - 1500) * distance  + (RATE_TO_1500 * 1000 * distance) + (RATE_TO_500 * 500 * distance);
         }
-        return RATE_TO_500 * distance * weight;
+        return RATE_TO_500 * distance * weight/1000;
 
     }
 }
