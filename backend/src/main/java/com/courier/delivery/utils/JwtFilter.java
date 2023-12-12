@@ -1,6 +1,5 @@
 package com.courier.delivery.utils;
 
-
 import com.courier.delivery.services.UserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -24,7 +23,8 @@ public class JwtFilter extends OncePerRequestFilter {
 
     @Autowired
     private UserDetailsService userService;
-
+ 
+    
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
         String authorization = httpServletRequest.getHeader("Authorization");
