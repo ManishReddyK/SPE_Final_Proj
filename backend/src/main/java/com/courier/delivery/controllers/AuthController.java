@@ -23,9 +23,6 @@ import java.util.Optional;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-// import org.slf4j.Logger;
-// import org.slf4j.LoggerFactory;
-
 @RestController
 @CrossOrigin
 @RequestMapping("/api/auth")
