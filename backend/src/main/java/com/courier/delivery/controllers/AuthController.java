@@ -48,16 +48,16 @@ public class AuthController {
 
     @PostMapping("/register")
     public ResponseEntity<BasicDTO<RegisterResponseDTO>> registerUser(@RequestBody RegisterRequestDTO registerRequestDTO) {
-        logger.info("[TYPE] incoming [METHOD] POST [API_NAME] registerUser");
+        logger.info("[TYPE] incoming"+" [METHOD] POST"+" [API_NAME] registerUser");
         BasicDTO<RegisterResponseDTO> basicDTO = new BasicDTO<>();
         basicDTO.setData(null);
         basicDTO.setSuccess(false);
         if (!registerRequestDTO.getPassword().equals(registerRequestDTO.getConfirmPassword())) {
-            logger.error("[TYPE] error [API_NAME] registerUser [ERROR] Password and Confirm Password do not match");
+            logger.error("[TYPE] error"+" [API_NAME] registerUser"+" [ERROR] Password and Confirm Password do not match");
             throw new PasswordAndConfirmPasswordNotMatchedException();
         }
         if (userDAO.existsByEmail(registerRequestDTO.getEmail())) {
-            logger.error("[TYPE] error [API_NAME] registerUser [ERROR] User with email {} already exists", registerRequestDTO.getEmail());
+            logger.error("[TYPE] error\"+\" [API_NAME] registerUser"+" [ERROR] User with email {} already exists", registerRequestDTO.getEmail());
             throw new UserAlreadyExistsException();
         }
         User user = new User();
@@ -73,37 +73,37 @@ public class AuthController {
         final UserDetails userDetails = userDetailsService.loadUserByUsername(user.getEmail());
         basicDTO.setData(new RegisterResponseDTO(jwtUtil.generateToken(userDetails), user.getEmail(), user.getFirstName()));
         basicDTO.setSuccess(true);
-        logger.info("[TYPE] outgoing [METHOD] POST [API_NAME] registerUser [STATUS] SUCCESS");
+        logger.info("[TYPE] outgoing\"+\" [METHOD] POST\"+\" [API_NAME] registerUser"+" [STATUS] SUCCESS");
         return new ResponseEntity<>(basicDTO, HttpStatus.CREATED);
     }
     
     @PostMapping("/login")
     public ResponseEntity<BasicDTO<LoginResponseDTO>> login(@RequestBody LoginRequestDTO loginRequestDTO) {
-        logger.info("[TYPE] incoming [METHOD] POST [API_NAME] login");
+        logger.info("[TYPE] incoming\"+\" [METHOD] POST\"+\" [API_NAME] login");
         BasicDTO<LoginResponseDTO> result = this.loginHelper(
                 loginRequestDTO.getEmail(),
                 loginRequestDTO.getPassword()
         );
         if (result.isSuccess()) {
-            logger.info("[TYPE] outgoing [METHOD] POST [API_NAME] login [STATUS] SUCCESS");
+            logger.info("[TYPE] outgoing\"+\" [METHOD] POST\"+\" [API_NAME] login\"+\" [STATUS] SUCCESS");
         } else {
-            logger.error("[TYPE] error [API_NAME] login [ERROR] {}", result.getMessage());
+            logger.error("[TYPE] error\"+\" [API_NAME] login\"+\" [ERROR] {}", result.getMessage());
         }
         return new ResponseEntity<>(result, result.isSuccess() ? HttpStatus.OK : HttpStatus.UNAUTHORIZED);
     }
     
     public BasicDTO<LoginResponseDTO> loginHelper(String email, String password) {
-        logger.info("[TYPE] internal [METHOD] loginHelper");
+        logger.info("[TYPE] internal\"+\" [METHOD] loginHelper");
         BasicDTO<LoginResponseDTO> basicDTO = new BasicDTO<>();
         Optional<User> _user = userDAO.findUserByEmail(email);
         if (_user.isEmpty()) {
-            logger.error("[TYPE] error [METHOD] loginHelper [ERROR] User not found");
+            logger.error("[TYPE] error\"+\" [METHOD] loginHelper\"+\" [ERROR] User not found");
             basicDTO.setMessage("User not found");
             return basicDTO;
         }
         User user = _user.get();
         if (!user.getActive()) {
-            logger.error("[TYPE] error [METHOD] loginHelper [ERROR] User not active");
+            logger.error("[TYPE] error\"+\" [METHOD] loginHelper\"+\" [ERROR] User not active");
             basicDTO.setMessage("User not active");
             return basicDTO;
         }
@@ -116,7 +116,7 @@ public class AuthController {
                     )
             );
         } catch (BadCredentialsException e) {
-            logger.error("[TYPE] error [METHOD] loginHelper [ERROR] Credentials not matched");
+            logger.error("[TYPE] error\"+\" [METHOD] loginHelper\"+\" [ERROR] Credentials not matched");
             basicDTO.setMessage("Credentials not matched");
             return basicDTO;
         }
@@ -127,7 +127,7 @@ public class AuthController {
         loginResponseDTO.setUser(user);
         basicDTO.setData(loginResponseDTO);
         basicDTO.setSuccess(true);
-        logger.info("[TYPE] internal [METHOD] loginHelper [STATUS] SUCCESS");
+        logger.info("[TYPE] internal\"+\" [METHOD] loginHelper\"+\" [STATUS] SUCCESS");
         return basicDTO;
     }
     

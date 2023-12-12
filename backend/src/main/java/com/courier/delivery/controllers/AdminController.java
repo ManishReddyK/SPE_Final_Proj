@@ -56,21 +56,26 @@ public class AdminController {
     private Logger logger = LoggerFactory.getLogger(AdminController.class);
     // private static final Logger logger = LogManager.getLogger(AdminController.class);
 
+    private void logInfo(String type, String method, String apiName, String additionalInfo) {
+        String logMessage = String.format("[TYPE] %s [METHOD] %s [API_NAME] %s %s", type, method, apiName, additionalInfo);
+        logger.info(logMessage);
+    }
+
     @Operation(security = @SecurityRequirement(name = "bearerAuth"))
     @GetMapping("/courier/getAll")
     public ResponseEntity<BasicDTO<List<CourierDetails>>> courierGetAll() {
-        logger.info("[TYPE] incoming [METHOD] GET [API_NAME] courierGetAll");
+        logInfo("incoming", "GET", "courierGetAll", "");
         List<CourierDetails> courierDetailsOptional = courierDetailsDAO.findAll();
-        logger.info("[TYPE] outgoing [METHOD] GET [API_NAME] courierGetAll [STATUS] SUCCESS");
+        logInfo("outgoing", "GET", "courierGetAll", "[STATUS] SUCCESS");
         return new ResponseEntity<>(new BasicDTO<>(true, "Orders List", courierDetailsOptional), HttpStatus.OK);
     }
 
     @Operation(security = @SecurityRequirement(name = "bearerAuth"))
     @DeleteMapping("/courier/delete/{orderId}")
     public ResponseEntity<BasicDTO<CourierDetails>> courierDelete(@PathVariable("orderId") Long orderId) {
-        logger.info("[TYPE] incoming [METHOD] DELETE [API_NAME] courierDelete [ORDER_ID] {}", orderId);
+        logInfo("incoming", "DELETE", "courierDelete", "[ORDER_ID] " + orderId);
         courierDetailsDAO.deleteById(orderId);
-        logger.info("[TYPE] outgoing [METHOD] DELETE [API_NAME] courierDelete [STATUS] SUCCESS");
+        logInfo("outgoing", "DELETE", "courierDelete", "[STATUS] SUCCESS");
         return new ResponseEntity<>(new BasicDTO<>(true, "Delete successfully", null), HttpStatus.OK);
     }
 
@@ -78,7 +83,7 @@ public class AdminController {
     @Operation(security = @SecurityRequirement(name = "bearerAuth"))
     @DeleteMapping("/agent/delete/{agentId}")
     public ResponseEntity<BasicDTO<CourierDetails>> agentDelete(@PathVariable("agentId") Long agentId) {
-        logger.info("[TYPE] incoming [METHOD] DELETE [API_NAME] agentDelete [AGENT_ID] {}", agentId);
+        logInfo("incoming", "DELETE", "agentDelete", "[AGENT_ID] " + agentId);
         List<CourierDetails> cdt = courierDetailsDAO.findByAgent_Id(agentId);
         var newCDT = cdt.stream().map(item -> {
             item.setAgent(null);
@@ -86,14 +91,14 @@ public class AdminController {
         }).collect(Collectors.toList());
         courierDetailsDAO.saveAll(newCDT);
         userDAO.deleteById(agentId);
-        logger.info("[TYPE] outgoing [METHOD] DELETE [API_NAME] agentDelete [STATUS] SUCCESS");
+        logInfo("outgoing", "DELETE", "agentDelete", "[STATUS] SUCCESS");
         return new ResponseEntity<>(new BasicDTO<>(true, "Delete successfully", null), HttpStatus.OK);
     }
 
     @Operation(security = @SecurityRequirement(name = "bearerAuth"))
     @GetMapping("/courier/assignAgent/{agentId}/{orderId}")
     public ResponseEntity<BasicDTO<CourierDetails>> courierAssignAgent(@PathVariable("agentId") Long agentId, @PathVariable("orderId") Long orderId) {
-        logger.info("[TYPE] incoming [METHOD] GET [API_NAME] courierAssignAgent [AGENT_ID] {} [ORDER_ID] {}", agentId, orderId);
+        logInfo("incoming", "GET", "courierAssignAgent", "[AGENT_ID] " + agentId + " [ORDER_ID] " + orderId);
         Optional<User> us = userDAO.findById(agentId);
         if (us.isEmpty())
             throw new UserNotFoundException();
@@ -104,32 +109,32 @@ public class AdminController {
         c.setAgent(us.get());
         c.setStatus(CourierStatusEnum.ASSIGNED);
         courierDetailsDAO.save(c);
-        logger.info("[TYPE] outgoing [METHOD] GET [API_NAME] courierAssignAgent [STATUS] SUCCESS");
+        logInfo("outgoing", "GET", "courierAssignAgent", "[STATUS] SUCCESS");
         return new ResponseEntity<>(new BasicDTO<>(true, "Details", c), HttpStatus.OK);
     }
 
     @Operation(security = @SecurityRequirement(name = "bearerAuth"))
     @GetMapping("/agent/getAll")
     public ResponseEntity<BasicDTO<List<User>>> agentsGetAll() {
-        logger.info("[TYPE] incoming [METHOD] GET [API_NAME] agentsGetAll");
+        logInfo("incoming", "GET", "agentsGetAll", "");
         List<User> agents = userDAO.findByRole(UserRoleEnum.AGENT);
-        logger.info("[TYPE] outgoing [METHOD] GET [API_NAME] agentsGetAll [STATUS] SUCCESS");
+        logInfo("outgoing", "GET", "agentsGetAll", "[STATUS] SUCCESS");
         return new ResponseEntity<>(new BasicDTO<>(true, "agents List", agents), HttpStatus.OK);
     }
 
     @Operation(security = @SecurityRequirement(name = "bearerAuth"))
     @GetMapping("/users/getAll")
     public ResponseEntity<BasicDTO<List<User>>> usersGetAll() {
-        logger.info("[TYPE] incoming [METHOD] GET [API_NAME] usersGetAll");
+        logInfo("incoming", "GET", "usersGetAll", "");
         List<User> agents = userDAO.findByRole(UserRoleEnum.USER);
-        logger.info("[TYPE] outgoing [METHOD] GET [API_NAME] usersGetAll [STATUS] SUCCESS");
+        logInfo("outgoing", "GET", "usersGetAll", "[STATUS] SUCCESS");
         return new ResponseEntity<>(new BasicDTO<>(true, "users List", agents), HttpStatus.OK);
     }
 
     @Operation(security = @SecurityRequirement(name = "bearerAuth"))
     @PostMapping("/agent/register")
     public ResponseEntity<BasicDTO<RegisterResponseDTO>> registerAgent(@RequestBody RegisterRequestDTO registerRequestDTO) {
-        logger.info("[TYPE] incoming [METHOD] POST [API_NAME] registerAgent");
+        logInfo("incoming", "POST", "registerAgent", "");
         BasicDTO<RegisterResponseDTO> basicDTO = new BasicDTO<>();
         basicDTO.setData(null);
         basicDTO.setSuccess(false);
@@ -152,26 +157,26 @@ public class AdminController {
         final UserDetails userDetails = userDetailsService.loadUserByUsername(user.getEmail());
         basicDTO.setData(new RegisterResponseDTO(jwtUtil.generateToken(userDetails), user.getEmail(), user.getFirstName()));
         basicDTO.setSuccess(true);
-        logger.info("[TYPE] outgoing [METHOD] POST [API_NAME] registerAgent [STATUS] SUCCESS");
+        logInfo("outgoing", "POST", "registerAgent", "[STATUS] SUCCESS");
         return new ResponseEntity<>(basicDTO, HttpStatus.CREATED);
     }
 
     @Operation(security = @SecurityRequirement(name = "bearerAuth"))
     @GetMapping("/profile")
     public ResponseEntity<BasicDTO<User>> profile(@RequestHeader(HttpHeaders.AUTHORIZATION) String token) {
-        logger.info("[TYPE] incoming [METHOD] GET [API_NAME] profile");
+        logInfo("incoming", "GET", "profile", "");
         String userEmail = jwtUtil.getUsernameFromToken(token.replace("Bearer ", ""));
         Optional<User> us = userDAO.findUserByEmail(userEmail);
         if (us.isEmpty())
             throw new UserNotFoundException();
-        logger.info("[TYPE] outgoing [METHOD] GET [API_NAME] profile [STATUS] SUCCESS");
+        logInfo("outgoing", "GET", "profile", "[STATUS] SUCCESS");
         return new ResponseEntity<>(new BasicDTO<>(true, "profile data", us.get()), HttpStatus.OK);
     }
 
     @Operation(security = @SecurityRequirement(name = "bearerAuth"))
     @PutMapping("/profile")
     public ResponseEntity<BasicDTO<User>> updateProfile(@RequestHeader(HttpHeaders.AUTHORIZATION) String token, @RequestBody RegisterRequestDTO registerRequestDTO) {
-        logger.info("[TYPE] incoming [METHOD] PUT [API_NAME] updateProfile");
+        logInfo("incoming", "PUT", "updateProfile", "");
         String userEmail = jwtUtil.getUsernameFromToken(token.replace("Bearer ", ""));
         Optional<User> us = userDAO.findUserByEmail(userEmail);
         if (us.isEmpty())
@@ -185,14 +190,14 @@ public class AdminController {
         user.setActive(true);
         user.setPassword(passwordEncoder.encode(registerRequestDTO.getPassword()));
         userDAO.save(user);
-        logger.info("[TYPE] outgoing [METHOD] PUT [API_NAME] updateProfile [STATUS] SUCCESS");
+        logInfo("outgoing", "PUT", "updateProfile", "[STATUS] SUCCESS");
         return new ResponseEntity<>(new BasicDTO<>(true, "Updated", user), HttpStatus.CREATED);
     }
 
     @Operation(security = @SecurityRequirement(name = "bearerAuth"))
     @PutMapping("/agent/update/profile/{agentId}")
     public ResponseEntity<BasicDTO<User>> updateAgentProfile(@PathVariable("agentId") Long agentId, @RequestBody RegisterRequestDTO registerRequestDTO) {
-        logger.info("[TYPE] incoming [METHOD] PUT [API_NAME] updateAgentProfile [AGENT_ID] {}", agentId);
+        logInfo("incoming", "PUT", "updateAgentProfile", "[AGENT_ID] " + agentId);
         Optional<User> us = userDAO.findById(agentId);
         if (us.isEmpty())
             throw new UserNotFoundException();
@@ -205,7 +210,7 @@ public class AdminController {
         user.setActive(true);
         user.setPassword(passwordEncoder.encode(registerRequestDTO.getPassword()));
         userDAO.save(user);
-        logger.info("[TYPE] outgoing [METHOD] PUT [API_NAME] updateAgentProfile [STATUS] SUCCESS");
+        logInfo("outgoing", "PUT", "updateAgentProfile", "[STATUS] SUCCESS");
         return new ResponseEntity<>(new BasicDTO<>(true, "Updated", user), HttpStatus.CREATED);
     }
     
