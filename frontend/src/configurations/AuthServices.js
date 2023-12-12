@@ -57,4 +57,19 @@ export default class AuthServices {
   CalculatedAmountForWeight(data) {
     return axiosServices.post(baseURL + `user/rates/calculate`, data, true, headers);
   }
+
+  DeleteCourierIdAgent(id) {
+    return axiosServices.Delete(baseURL+ `admin/agent/delete/${id}`,true,headers);
+  }
+
+  UpdateAgentDataByADmin(AgentId,data) {
+    
+    return axiosServices.put(baseURL + `admin/agent/update/profile/${AgentId}`,data,true,headers);
+  }
+
+  AssignAgent(AID,CID) {
+    return axiosServices.Get(baseURL + `admin/courier/assignAgent/${AID}/${CID}`,true,headers);
+  }
+
+
 }

@@ -26,6 +26,12 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
+// import org.slf4j.Logger;
+// import org.slf4j.LoggerFactory;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 @RestController
 @CrossOrigin
 @RequestMapping("/user")
@@ -39,14 +45,21 @@ public class UserController {
 
     @Autowired
     private JWTUtil jwtUtil;
+
+    // private Logger logger = LogManager.getLogger(UserController.class);
+    private static final Logger logger = LogManager.getLogger(UserController.class);
+
     @Operation(security = @SecurityRequirement(name = "bearerAuth"))
     @PostMapping("/courier/create")
-    public ResponseEntity<BasicDTO<CourierDetails>> createCourier(@RequestBody CourierDetails r, @RequestHeader(HttpHeaders.AUTHORIZATION) String token){
+    public ResponseEntity<BasicDTO<CourierDetails>> createCourier(@RequestBody CourierDetails r, @RequestHeader(HttpHeaders.AUTHORIZATION) String token) {
+        logger.info("[TYPE] incoming [METHOD] POST [API_NAME] createCourier");
         String userEmail = jwtUtil.getUsernameFromToken(token.replace("Bearer ", ""));
         Optional<User> us = userDAO.findUserByEmail(userEmail);
-        if(us.isEmpty())
+        if (us.isEmpty()) {
+            logger.error("[TYPE] error [API_NAME] createCourier [ERROR] User not found");
             throw new UserNotFoundException();
-
+        }
+    
         r.setCreatedOn(LocalDate.now());
         r.setStatus(CourierStatusEnum.PENDING);
         r.setId(null);
@@ -54,45 +67,68 @@ public class UserController {
         r.setAgent(null);
         r.setExpectedDeliveryDate(LocalDate.now().plusDays(5));
         courierDetailsDAO.save(r);
+    
+        logger.info("[TYPE] outgoing [METHOD] POST [API_NAME] createCourier [STATUS] SUCCESS");
         return new ResponseEntity<>(new BasicDTO<>(true, "Successfully create", r), HttpStatus.CREATED);
     }
+    
     @Operation(security = @SecurityRequirement(name = "bearerAuth"))
     @GetMapping("/courier/trackById/{id}")
-    public ResponseEntity<BasicDTO<CourierDetails>> courierTrackById(@PathVariable("id") Long id){
-
+    public ResponseEntity<BasicDTO<CourierDetails>> courierTrackById(@PathVariable("id") Long id) {
+        logger.info("[TYPE] incoming [METHOD] GET [API_NAME] courierTrackById");
         Optional<CourierDetails> courierDetailsOptional = courierDetailsDAO.findById(id);
-        if(courierDetailsOptional.isEmpty())
+        if (courierDetailsOptional.isEmpty()) {
+            logger.error("[TYPE] error [API_NAME] courierTrackById [ERROR] Courier not found for id: {}", id);
             throw new CourierNotFoundException();
+        }
+    
+        logger.info("[TYPE] outgoing [METHOD] GET [API_NAME] courierTrackById [STATUS] SUCCESS");
         return new ResponseEntity<>(new BasicDTO<>(true, "Order details", courierDetailsOptional.get()), HttpStatus.OK);
     }
+    
     @Operation(security = @SecurityRequirement(name = "bearerAuth"))
     @GetMapping("/courier/myOrders")
-    public ResponseEntity<BasicDTO<List<CourierDetails>>> courierMyOrders(@RequestHeader(HttpHeaders.AUTHORIZATION) String token){
+    public ResponseEntity<BasicDTO<List<CourierDetails>>> courierMyOrders(@RequestHeader(HttpHeaders.AUTHORIZATION) String token) {
+        logger.info("[TYPE] incoming [METHOD] GET [API_NAME] courierMyOrders");
         String userEmail = jwtUtil.getUsernameFromToken(token.replace("Bearer ", ""));
         Optional<User> us = userDAO.findUserByEmail(userEmail);
-        if(us.isEmpty())
+        if (us.isEmpty()) {
+            logger.error("[TYPE] error [API_NAME] courierMyOrders [ERROR] User not found");
             throw new UserNotFoundException();
+        }
+    
         List<CourierDetails> courierDetailsOptional = courierDetailsDAO.findByUser(us.get());
+    
+        logger.info("[TYPE] outgoing [METHOD] GET [API_NAME] courierMyOrders [STATUS] SUCCESS");
         return new ResponseEntity<>(new BasicDTO<>(true, "Orders List", courierDetailsOptional), HttpStatus.OK);
     }
-
+    
     @Operation(security = @SecurityRequirement(name = "bearerAuth"))
     @GetMapping("/profile")
-    public ResponseEntity<BasicDTO<User>> profile(@RequestHeader(HttpHeaders.AUTHORIZATION) String token){
+    public ResponseEntity<BasicDTO<User>> profile(@RequestHeader(HttpHeaders.AUTHORIZATION) String token) {
+        logger.info("[TYPE] incoming [METHOD] GET [API_NAME] profile");
         String userEmail = jwtUtil.getUsernameFromToken(token.replace("Bearer ", ""));
         Optional<User> us = userDAO.findUserByEmail(userEmail);
-        if(us.isEmpty())
+        if (us.isEmpty()) {
+            logger.error("[TYPE] error [API_NAME] profile [ERROR] User not found");
             throw new UserNotFoundException();
+        }
+    
+        logger.info("[TYPE] outgoing [METHOD] GET [API_NAME] profile [STATUS] SUCCESS");
         return new ResponseEntity<>(new BasicDTO<>(true, "profile data", us.get()), HttpStatus.OK);
     }
-
+    
     @Operation(security = @SecurityRequirement(name = "bearerAuth"))
     @PutMapping("/profile")
-    public ResponseEntity<BasicDTO<User>> updateProfile(@RequestHeader(HttpHeaders.AUTHORIZATION) String token ,@RequestBody RegisterRequestDTO registerRequestDTO) {
+    public ResponseEntity<BasicDTO<User>> updateProfile(@RequestHeader(HttpHeaders.AUTHORIZATION) String token, @RequestBody RegisterRequestDTO registerRequestDTO) {
+        logger.info("[TYPE] incoming [METHOD] PUT [API_NAME] updateProfile");
         String userEmail = jwtUtil.getUsernameFromToken(token.replace("Bearer ", ""));
         Optional<User> us = userDAO.findUserByEmail(userEmail);
-        if(us.isEmpty())
+        if (us.isEmpty()) {
+            logger.error("[TYPE] error [API_NAME] updateProfile [ERROR] User not found");
             throw new UserNotFoundException();
+        }
+    
         User user = us.get();
         user.setMobileNo(registerRequestDTO.getMobileNo());
         user.setFirstName(registerRequestDTO.getFirstName());
@@ -102,17 +138,22 @@ public class UserController {
         user.setActive(true);
         user.setPassword(passwordEncoder.encode(registerRequestDTO.getPassword()));
         userDAO.save(user);
+    
+        logger.info("[TYPE] outgoing [METHOD] PUT [API_NAME] updateProfile [STATUS] SUCCESS");
         return new ResponseEntity<>(new BasicDTO<>(true, "Updated", user), HttpStatus.CREATED);
     }
-
+    
     @Operation(security = @SecurityRequirement(name = "bearerAuth"))
     @PostMapping("/rates/calculate")
-    public ResponseEntity<BasicDTO<RateCalculateReqDTO>> calculateRates(@RequestBody RateCalculateReqDTO r){
-
-        Double amount =  CalculationUtil.calculateRate(r.getWeight(), r.getDistance(), r.getOrderType());
+    public ResponseEntity<BasicDTO<RateCalculateReqDTO>> calculateRates(@RequestBody RateCalculateReqDTO r) {
+        logger.info("[TYPE] incoming [METHOD] POST [API_NAME] calculateRates");
+        Double amount = CalculationUtil.calculateRate(r.getWeight(), r.getDistance(), r.getOrderType());
         r.setAmount(amount);
+    
+        logger.info("[TYPE] outgoing [METHOD] POST [API_NAME] calculateRates [STATUS] SUCCESS");
         return new ResponseEntity<>(new BasicDTO<>(true, "Calculated amount", r), HttpStatus.OK);
     }
+    
 
 
 

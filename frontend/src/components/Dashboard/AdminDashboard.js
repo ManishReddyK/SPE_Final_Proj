@@ -1025,12 +1025,12 @@ class AdminDashboard extends Component {
                                       >
                                         Courier Type
                                       </TableCell>
-                                      <TableCell
+                                      {/* <TableCell
                                         align="center"
                                         style={{ width: 210, fontEmailAgent: 600, fontSize: 15 }}
                                       >
                                         Weight
-                                      </TableCell>
+                                      </TableCell> */}
                                       <TableCell
                                         align="center"
                                         style={{ width: 210, fontEmailAgent: 600, fontSize: 15 }}
@@ -1105,10 +1105,10 @@ class AdminDashboard extends Component {
                                             <TableCell align="center" style={{ width: 100 }}>
                                               {data.orderType}
                                             </TableCell>
-                                            <TableCell align="center" style={{ width: 100 }}>
+                                            {/* <TableCell align="center" style={{ width: 100 }}>
                                               {data.weight}
 
-                                            </TableCell>
+                                            </TableCell> */}
                                             <TableCell align="center" style={{ width: 100 }}>
                                               {data.status}
 
@@ -1124,7 +1124,7 @@ class AdminDashboard extends Component {
                                               {data.paymentMode}
                                             </TableCell>
                                             <TableCell align="center" style={{ width: 100 }}>
-                                              {data.amount}
+                                              {data.amount/1000}
                                             </TableCell>
 
 
