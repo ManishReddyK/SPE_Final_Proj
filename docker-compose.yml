@@ -18,7 +18,7 @@ services:
       - MYSQL_PORT=3306
       - MYSQL_USER=root
       - MYSQL_PASSWORD=root
-    
+
   database:
     image: mysql:latest
     ports:
@@ -30,7 +30,7 @@ services:
       MYSQL_USER: root
       MYSQL_PASSWORD: root
     volumes:
-      - db_data:/var/lib/mysql  # Persist data to avoid losing database state
+      - db_data:/var/lib/mysql
 
 volumes:
   db_data:
