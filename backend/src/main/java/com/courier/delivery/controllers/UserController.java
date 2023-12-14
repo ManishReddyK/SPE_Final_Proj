@@ -154,7 +154,7 @@ public class UserController {
     public ResponseEntity<BasicDTO<RateCalculateReqDTO>> calculateRates(@RequestBody RateCalculateReqDTO r) {
         logInfo("incoming", "POST", "calculateRates", "");
         Double amount = CalculationUtil.calculateRate(r.getWeight(), r.getDistance(), r.getOrderType());
-        r.setAmount(amount);
+        r.setAmount(amount/1000);
 
         logInfo("outgoing", "POST", "calculateRates", "[STATUS] SUCCESS");
         return new ResponseEntity<>(new BasicDTO<>(true, "Calculated amount", r), HttpStatus.OK);
