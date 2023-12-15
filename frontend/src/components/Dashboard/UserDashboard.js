@@ -803,7 +803,7 @@ handlePayentModeInput=()=>{
                                       align="Left"
                                       style={{ width: 100, fontWeight: 600, fontSize: 15 }}
                                     >
-                                      Eexpected DeliveryDate
+                                      Expected DeliveryDate
                                     </TableCell>
                                     <TableCell
                                       align="Left"
