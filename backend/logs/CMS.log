@@ -1,54 +1,9 @@
-2023-12-12 13:24:14,052 [INFO] com.courier.delivery.CourierDeliveryApplication [main] Starting CourierDeliveryApplication v0.0.1-SNAPSHOT using Java 17.0.2 on a8fc781f47bb with PID 1 (/delivery-0.0.1-SNAPSHOT.jar started by root in /)
-2023-12-12 13:24:14,056 [INFO] com.courier.delivery.CourierDeliveryApplication [main] No active profile set, falling back to 1 default profile: "default"
-2023-12-12 13:24:15,141 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-12-12 13:24:15,216 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 62 ms. Found 2 JPA repository interfaces.
-2023-12-12 13:24:16,018 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 9090 (http)
-2023-12-12 13:24:16,030 [INFO] org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
-2023-12-12 13:24:16,030 [INFO] org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.65]
-2023-12-12 13:24:16,112 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring embedded WebApplicationContext
-2023-12-12 13:24:16,112 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1981 ms
-2023-12-12 13:24:16,398 [INFO] org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-12-12 13:24:16,475 [INFO] org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.10.Final
-2023-12-12 13:24:16,730 [INFO] org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2023-12-12 13:24:16,881 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
-2023-12-12 13:24:17,310 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
-2023-12-12 13:24:17,326 [INFO] org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2023-12-12 13:24:18,024 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-12-12 13:24:18,034 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-12-12 13:24:18,605 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-12-12 13:24:19,570 [INFO] org.springframework.security.web.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5634a861, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2b0dc227, org.springframework.security.web.context.SecurityContextPersistenceFilter@1b495d4, org.springframework.security.web.header.HeaderWriterFilter@650ae78c, org.springframework.web.filter.CorsFilter@37ad042b, org.springframework.security.web.authentication.logout.LogoutFilter@4d266391, com.courier.delivery.utils.JwtFilter@646c0a67, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7f37b6d9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@12fe1f28, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@43bdaa1b, org.springframework.security.web.session.SessionManagementFilter@2cde651b, org.springframework.security.web.access.ExceptionTranslationFilter@2fdf17dc, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@55651434]
-2023-12-12 13:24:19,849 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 9090 (http) with context path ''
-2023-12-12 13:24:19,861 [INFO] com.courier.delivery.CourierDeliveryApplication [main] Started CourierDeliveryApplication in 6.396 seconds (JVM running for 7.018)
-2023-12-12 13:24:14,052 [INFO] com.courier.delivery.CourierDeliveryApplication [main] Starting CourierDeliveryApplication v0.0.1-SNAPSHOT using Java 17.0.2 on a8fc781f47bb with PID 1 (/delivery-0.0.1-SNAPSHOT.jar started by root in /)
-2023-12-12 13:24:14,056 [INFO] com.courier.delivery.CourierDeliveryApplication [main] No active profile set, falling back to 1 default profile: "default"
-2023-12-12 13:24:15,141 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-12-12 13:24:15,216 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 62 ms. Found 2 JPA repository interfaces.
-2023-12-12 13:24:16,018 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 9090 (http)
-2023-12-12 13:24:16,030 [INFO] org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
-2023-12-12 13:24:16,030 [INFO] org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.65]
-2023-12-12 13:24:16,112 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring embedded WebApplicationContext
-2023-12-12 13:24:16,112 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1981 ms
-2023-12-12 13:24:16,398 [INFO] org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-12-12 13:24:16,475 [INFO] org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.10.Final
-2023-12-12 13:24:16,730 [INFO] org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2023-12-12 13:24:16,881 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
-2023-12-12 13:24:17,310 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
-2023-12-12 13:24:17,326 [INFO] org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2023-12-12 13:24:18,024 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-12-12 13:24:18,034 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-12-12 13:24:18,605 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-12-12 13:24:19,570 [INFO] org.springframework.security.web.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5634a861, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2b0dc227, org.springframework.security.web.context.SecurityContextPersistenceFilter@1b495d4, org.springframework.security.web.header.HeaderWriterFilter@650ae78c, org.springframework.web.filter.CorsFilter@37ad042b, org.springframework.security.web.authentication.logout.LogoutFilter@4d266391, com.courier.delivery.utils.JwtFilter@646c0a67, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7f37b6d9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@12fe1f28, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@43bdaa1b, org.springframework.security.web.session.SessionManagementFilter@2cde651b, org.springframework.security.web.access.ExceptionTranslationFilter@2fdf17dc, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@55651434]
-2023-12-12 13:24:19,849 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 9090 (http) with context path ''
-2023-12-12 13:24:19,861 [INFO] com.courier.delivery.CourierDeliveryApplication [main] Started CourierDeliveryApplication in 6.396 seconds (JVM running for 7.018)
-2023-12-12 13:39:31,766 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-9090-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-12-12 13:39:31,766 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-9090-exec-1] Initializing Servlet 'dispatcherServlet'
-2023-12-12 13:39:31,767 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-9090-exec-1] Completed initialization in 1 ms
 2023-12-12 13:39:31,880 [INFO] com.courier.delivery.controllers.AuthController [http-nio-9090-exec-2] [TYPE] incoming [METHOD] POST [API_NAME] registerUser
-2023-12-12 13:39:32,108 [INFO] com.courier.delivery.controllers.AuthController [http-nio-9090-exec-2] [TYPE] outgoing"+" [METHOD] POST"+" [API_NAME] registerUser [STATUS] SUCCESS
-2023-12-12 13:39:43,898 [INFO] com.courier.delivery.controllers.AuthController [http-nio-9090-exec-3] [TYPE] incoming"+" [METHOD] POST"+" [API_NAME] login
-2023-12-12 13:39:43,898 [INFO] com.courier.delivery.controllers.AuthController [http-nio-9090-exec-3] [TYPE] internal"+" [METHOD] loginHelper
-2023-12-12 13:39:44,040 [INFO] com.courier.delivery.controllers.AuthController [http-nio-9090-exec-3] [TYPE] internal"+" [METHOD] loginHelper"+" [STATUS] SUCCESS
-2023-12-12 13:39:44,041 [INFO] com.courier.delivery.controllers.AuthController [http-nio-9090-exec-3] [TYPE] outgoing"+" [METHOD] POST"+" [API_NAME] login"+" [STATUS] SUCCESS
+2023-12-12 13:39:32,108 [INFO] com.courier.delivery.controllers.AuthController [http-nio-9090-exec-2] [TYPE] outgoing [METHOD] POST [API_NAME] registerUser [STATUS] SUCCESS
+2023-12-12 13:39:43,898 [INFO] com.courier.delivery.controllers.AuthController [http-nio-9090-exec-3] [TYPE] incoming [METHOD] POST [API_NAME] login
+2023-12-12 13:39:43,898 [INFO] com.courier.delivery.controllers.AuthController [http-nio-9090-exec-3] [TYPE] internal [METHOD] loginHelper
+2023-12-12 13:39:44,040 [INFO] com.courier.delivery.controllers.AuthController [http-nio-9090-exec-3] [TYPE] internal [METHOD] loginHelper [STATUS] SUCCESS
+2023-12-12 13:39:44,041 [INFO] com.courier.delivery.controllers.AuthController [http-nio-9090-exec-3] [TYPE] outgoing [METHOD] POST [API_NAME] login [STATUS] SUCCESS
 2023-12-12 13:40:07,212 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-5] [TYPE] incoming [METHOD] POST [API_NAME] calculateRates 
 2023-12-12 13:40:07,213 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-5] [TYPE] outgoing [METHOD] POST [API_NAME] calculateRates [STATUS] SUCCESS
 2023-12-12 13:40:11,478 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-7] [TYPE] incoming [METHOD] POST [API_NAME] createCourier 
@@ -85,3 +40,141 @@
 2023-12-12 13:43:27,619 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-4] [TYPE] outgoing [METHOD] GET [API_NAME] courierMyOrders [STATUS] SUCCESS
 2023-12-12 13:43:33,847 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-5] [TYPE] incoming [METHOD] GET [API_NAME] courierMyOrders 
 2023-12-12 13:43:33,855 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-5] [TYPE] outgoing [METHOD] GET [API_NAME] courierMyOrders [STATUS] SUCCESS
+2023-12-14 05:37:35,787 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-1] [TYPE] incoming [METHOD] GET [API_NAME] courierMyOrders 
+2023-12-14 05:37:35,806 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-1] [TYPE] outgoing [METHOD] GET [API_NAME] courierMyOrders [STATUS] SUCCESS
+2023-12-14 05:37:56,040 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-2] [TYPE] incoming [METHOD] POST [API_NAME] calculateRates 
+2023-12-14 05:37:56,041 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-2] [TYPE] outgoing [METHOD] POST [API_NAME] calculateRates [STATUS] SUCCESS
+2023-12-14 05:37:59,518 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-3] [TYPE] incoming [METHOD] POST [API_NAME] createCourier 
+2023-12-14 05:37:59,561 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-3] [TYPE] outgoing [METHOD] POST [API_NAME] createCourier [STATUS] SUCCESS
+2023-12-14 05:38:01,460 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-4] [TYPE] incoming [METHOD] GET [API_NAME] courierMyOrders 
+2023-12-14 05:38:01,470 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-4] [TYPE] outgoing [METHOD] GET [API_NAME] courierMyOrders [STATUS] SUCCESS
+2023-12-14 05:38:41,262 [INFO] com.courier.delivery.controllers.AuthController [http-nio-9090-exec-6] [TYPE] incoming [METHOD] POST [API_NAME] login
+2023-12-14 05:38:41,262 [INFO] com.courier.delivery.controllers.AuthController [http-nio-9090-exec-6] [TYPE] internal [METHOD] loginHelper
+2023-12-14 05:38:41,414 [INFO] com.courier.delivery.controllers.AuthController [http-nio-9090-exec-6] [TYPE] internal [METHOD] loginHelper [STATUS] SUCCESS
+2023-12-14 05:38:41,414 [INFO] com.courier.delivery.controllers.AuthController [http-nio-9090-exec-6] [TYPE] outgoing [METHOD] POST [API_NAME] login [STATUS] SUCCESS
+2023-12-14 05:39:03,118 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-5] [TYPE] incoming [METHOD] POST [API_NAME] calculateRates [STATUS] SUCCESS
+2023-12-14 05:39:03,118 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-5] [TYPE] outgoing [METHOD] POST [API_NAME] calculateRates [STATUS] SUCCESS
+2023-12-14 05:39:06,850 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-7] [TYPE] incoming [METHOD] POST [API_NAME] createCourier [STATUS] SUCCESS
+2023-12-14 05:39:06,864 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-7] [TYPE] outgoing [METHOD] POST [API_NAME] createCourier [STATUS] SUCCESS
+2023-12-14 05:39:08,715 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-8] [TYPE] incoming [METHOD] GET [API_NAME] courierMyOrders [STATUS] SUCCESS
+2023-12-14 05:39:08,723 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-8] [TYPE] outgoing [METHOD] GET [API_NAME] courierMyOrders [STATUS] SUCCESS
+2023-12-14 05:39:11,214 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-9] [TYPE] incoming [METHOD] GET [API_NAME] courierMyOrders [STATUS] SUCCESS
+2023-12-14 05:39:11,218 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-9] [TYPE] outgoing [METHOD] GET [API_NAME] courierMyOrders [STATUS] SUCCESS
+2023-12-14 05:39:31,808 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-10] [TYPE] incoming [METHOD] POST [API_NAME] calculateRates [STATUS] SUCCESS
+2023-12-14 05:39:31,808 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-10] [TYPE] outgoing [METHOD] POST [API_NAME] calculateRates [STATUS] SUCCESS
+2023-12-14 05:39:35,250 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-1] [TYPE] incoming [METHOD] POST [API_NAME] createCourier [STATUS] SUCCESS
+2023-12-14 05:39:35,262 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-1] [TYPE] outgoing [METHOD] POST [API_NAME] createCourier [STATUS] SUCCESS
+2023-12-14 05:39:37,595 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-2] [TYPE] incoming [METHOD] GET [API_NAME] courierMyOrders [STATUS] SUCCESS
+2023-12-14 05:39:37,603 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-2] [TYPE] outgoing [METHOD] GET [API_NAME] courierMyOrders [STATUS] SUCCESS
+2023-12-14 05:40:03,319 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-3] [TYPE] incoming [METHOD] POST [API_NAME] calculateRates [STATUS] SUCCESS
+2023-12-14 05:40:04,602 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-6] [TYPE] incoming [METHOD] POST [API_NAME] calculateRates [STATUS] SUCCESS
+2023-12-14 05:40:04,783 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-5] [TYPE] incoming [METHOD] POST [API_NAME] calculateRates [STATUS] SUCCESS
+2023-12-14 05:40:04,955 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-7] [TYPE] incoming [METHOD] POST [API_NAME] calculateRates [STATUS] SUCCESS
+2023-12-14 05:40:22,539 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-8] [TYPE] incoming [METHOD] POST [API_NAME] calculateRates [STATUS] SUCCESS
+2023-12-14 05:40:22,539 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-8] [TYPE] outgoing [METHOD] POST [API_NAME] calculateRates [STATUS] SUCCESS
+2023-12-14 05:40:25,484 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-9] [TYPE] incoming [METHOD] POST [API_NAME] createCourier [STATUS] SUCCESS
+2023-12-14 05:40:25,495 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-9] [TYPE] outgoing [METHOD] POST [API_NAME] createCourier [STATUS] SUCCESS
+2023-12-14 05:40:27,174 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-10] [TYPE] incoming [METHOD] GET [API_NAME] courierMyOrders [STATUS] SUCCESS
+2023-12-14 05:40:27,184 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-10] [TYPE] outgoing [METHOD] GET [API_NAME] courierMyOrders [STATUS] SUCCESS
+2023-12-14 05:40:42,836 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-1] [TYPE] incoming [METHOD] GET [API_NAME] courierMyOrders [STATUS] SUCCESS
+2023-12-14 05:40:42,844 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-1] [TYPE] outgoing [METHOD] GET [API_NAME] courierMyOrders [STATUS] SUCCESS
+2023-12-14 05:41:03,985 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-2] [TYPE] incoming [METHOD] POST [API_NAME] calculateRates [STATUS] SUCCESS
+2023-12-14 05:41:03,985 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-2] [TYPE] outgoing [METHOD] POST [API_NAME] calculateRates [STATUS] SUCCESS
+2023-12-14 05:41:07,180 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-3] [TYPE] incoming [METHOD] POST [API_NAME] createCourier [STATUS] SUCCESS
+2023-12-14 05:41:07,193 [INFO] com.courier.delivery.controllers.UserController [http-nio-9090-exec-3] [TYPE] outgoing [METHOD] POST [API_NAME] createCourier [STATUS] SUCCESS
+2023-12-14 05:44:04,092 [INFO] com.courier.delivery.controllers.AuthController [http-nio-9090-exec-6] [TYPE] incoming [METHOD] POST [API_NAME] login
+2023-12-14 05:44:04,092 [INFO] com.courier.delivery.controllers.AuthController [http-nio-9090-exec-6] [TYPE] internal [METHOD] loginHelper
+2023-12-14 05:44:04,176 [ERROR] com.courier.delivery.controllers.AuthController [http-nio-9090-exec-6] [TYPE] error [METHOD] loginHelper [ERROR] Credentials not matched
+2023-12-14 05:44:04,176 [ERROR] com.courier.delivery.controllers.AuthController [http-nio-9090-exec-6] [TYPE] error [API_NAME] login [ERROR] Credentials not matched
+2023-12-14 05:44:13,327 [INFO] com.courier.delivery.controllers.AuthController [http-nio-9090-exec-5] [TYPE] incoming [METHOD] POST [API_NAME] login
+2023-12-14 05:44:13,328 [INFO] com.courier.delivery.controllers.AuthController [http-nio-9090-exec-5] [TYPE] internal [METHOD] loginHelper
+2023-12-14 05:44:13,412 [ERROR] com.courier.delivery.controllers.AuthController [http-nio-9090-exec-5] [TYPE] error [METHOD] loginHelper [ERROR] Credentials not matched
+2023-12-14 05:44:13,412 [ERROR] com.courier.delivery.controllers.AuthController [http-nio-9090-exec-5] [TYPE] error [API_NAME] login [ERROR] Credentials not matched
+2023-12-14 05:44:32,039 [INFO] com.courier.delivery.controllers.AuthController [http-nio-9090-exec-7] [TYPE] incoming [METHOD] POST [API_NAME] login
+2023-12-14 05:44:32,039 [INFO] com.courier.delivery.controllers.AuthController [http-nio-9090-exec-7] [TYPE] internal [METHOD] loginHelper
+2023-12-14 05:44:32,124 [INFO] com.courier.delivery.controllers.AuthController [http-nio-9090-exec-7] [TYPE] internal [METHOD] loginHelper [STATUS] SUCCESS
+2023-12-14 05:44:32,124 [INFO] com.courier.delivery.controllers.AuthController [http-nio-9090-exec-7] [TYPE] outgoing [METHOD] POST [API_NAME] login [STATUS] SUCCESS
+2023-12-14 05:44:32,161 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-9] [TYPE] incoming [METHOD] GET [API_NAME] agentsGetAll [STATUS] SUCCESS
+2023-12-14 05:44:32,166 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-9] [TYPE] outgoing [METHOD] GET [API_NAME] agentsGetAll [STATUS] SUCCESS
+2023-12-14 05:44:32,176 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-10] [TYPE] incoming [METHOD] GET [API_NAME] agentsGetAll [STATUS] SUCCESS
+2023-12-14 05:44:32,179 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-10] [TYPE] outgoing [METHOD] GET [API_NAME] agentsGetAll [STATUS] SUCCESS
+2023-12-14 05:44:33,304 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-2] [TYPE] incoming [METHOD] GET [API_NAME] usersGetAll [STATUS] SUCCESS
+2023-12-14 05:44:33,308 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-2] [TYPE] outgoing [METHOD] GET [API_NAME] usersGetAll [STATUS] SUCCESS
+2023-12-14 05:44:34,511 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-4] [TYPE] incoming [METHOD] GET [API_NAME] courierGetAll 
+2023-12-14 05:44:34,533 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-4] [TYPE] outgoing [METHOD] GET [API_NAME] courierGetAll [STATUS] SUCCESS
+2023-12-14 05:44:35,174 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-6] [TYPE] incoming [METHOD] GET [API_NAME] usersGetAll 
+2023-12-14 05:44:35,180 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-6] [TYPE] outgoing [METHOD] GET [API_NAME] usersGetAll [STATUS] SUCCESS
+2023-12-14 05:44:35,793 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-7] [TYPE] incoming [METHOD] GET [API_NAME] courierGetAll 
+2023-12-14 05:44:35,794 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-7] [TYPE] outgoing [METHOD] GET [API_NAME] courierGetAll [STATUS] SUCCESS
+2023-12-14 05:44:36,263 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-8] [TYPE] incoming [METHOD] GET [API_NAME] courierGetAll 
+2023-12-14 05:44:36,280 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-8] [TYPE] outgoing [METHOD] GET [API_NAME] courierGetAll [STATUS] SUCCESS
+2023-12-14 05:44:58,696 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-9] [TYPE] incoming [METHOD] GET [API_NAME] agentsGetAll 
+2023-12-14 05:44:58,698 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-9] [TYPE] outgoing [METHOD] GET [API_NAME] agentsGetAll [STATUS] SUCCESS
+2023-12-14 05:44:58,721 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-10] [TYPE] incoming [METHOD] GET [API_NAME] agentsGetAll 
+2023-12-14 05:44:58,723 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-10] [TYPE] outgoing [METHOD] GET [API_NAME] agentsGetAll [STATUS] SUCCESS
+2023-12-14 05:45:00,032 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-1] [TYPE] incoming [METHOD] GET [API_NAME] usersGetAll 
+2023-12-14 05:45:00,037 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-1] [TYPE] outgoing [METHOD] GET [API_NAME] usersGetAll [STATUS] SUCCESS
+2023-12-14 05:45:00,703 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-2] [TYPE] incoming [METHOD] GET [API_NAME] courierGetAll 
+2023-12-14 05:45:00,720 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-2] [TYPE] outgoing [METHOD] GET [API_NAME] courierGetAll [STATUS] SUCCESS
+2023-12-14 05:45:02,538 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-4] [TYPE] incoming [METHOD] DELETE [API_NAME] courierDelete [ORDER_ID] 1
+2023-12-14 05:45:02,567 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-4] [TYPE] outgoing [METHOD] DELETE [API_NAME] courierDelete [STATUS] SUCCESS
+2023-12-14 05:45:02,597 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-6] [TYPE] incoming [METHOD] GET [API_NAME] courierGetAll 
+2023-12-14 05:45:02,605 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-6] [TYPE] outgoing [METHOD] GET [API_NAME] courierGetAll [STATUS] SUCCESS
+2023-12-14 05:45:06,576 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-7] [TYPE] incoming [METHOD] GET [API_NAME] courierGetAll 
+2023-12-14 05:45:06,577 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-7] [TYPE] outgoing [METHOD] GET [API_NAME] courierGetAll [STATUS] SUCCESS
+2023-12-14 05:45:15,225 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-9] [TYPE] incoming [METHOD] POST [API_NAME] registerAgent 
+2023-12-14 05:45:15,313 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-9] [TYPE] outgoing [METHOD] POST [API_NAME] registerAgent [STATUS] SUCCESS
+2023-12-14 05:45:15,337 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-10] [TYPE] incoming [METHOD] GET [API_NAME] agentsGetAll 
+2023-12-14 05:45:15,339 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-10] [TYPE] outgoing [METHOD] GET [API_NAME] agentsGetAll [STATUS] SUCCESS
+2023-12-14 05:45:15,356 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-1] [TYPE] incoming [METHOD] GET [API_NAME] agentsGetAll 
+2023-12-14 05:45:15,358 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-1] [TYPE] outgoing [METHOD] GET [API_NAME] agentsGetAll [STATUS] SUCCESS
+2023-12-14 05:45:37,435 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-2] [TYPE] incoming [METHOD] POST [API_NAME] registerAgent 
+2023-12-14 05:45:37,512 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-2] [TYPE] outgoing [METHOD] POST [API_NAME] registerAgent [STATUS] SUCCESS
+2023-12-14 05:45:37,551 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-3] [TYPE] incoming [METHOD] GET [API_NAME] agentsGetAll 
+2023-12-14 05:45:37,552 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-3] [TYPE] outgoing [METHOD] GET [API_NAME] agentsGetAll [STATUS] SUCCESS
+2023-12-14 05:45:37,571 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-4] [TYPE] incoming [METHOD] GET [API_NAME] agentsGetAll 
+2023-12-14 05:45:37,573 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-4] [TYPE] outgoing [METHOD] GET [API_NAME] agentsGetAll [STATUS] SUCCESS
+2023-12-14 05:45:56,103 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-6] [TYPE] incoming [METHOD] POST [API_NAME] registerAgent 
+2023-12-14 05:45:56,182 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-6] [TYPE] outgoing [METHOD] POST [API_NAME] registerAgent [STATUS] SUCCESS
+2023-12-14 05:45:56,214 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-5] [TYPE] incoming [METHOD] GET [API_NAME] agentsGetAll 
+2023-12-14 05:45:56,216 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-5] [TYPE] outgoing [METHOD] GET [API_NAME] agentsGetAll [STATUS] SUCCESS
+2023-12-14 05:45:56,236 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-7] [TYPE] incoming [METHOD] GET [API_NAME] agentsGetAll 
+2023-12-14 05:45:56,238 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-7] [TYPE] outgoing [METHOD] GET [API_NAME] agentsGetAll [STATUS] SUCCESS
+2023-12-14 05:46:15,763 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-8] [TYPE] incoming [METHOD] POST [API_NAME] registerAgent 
+2023-12-14 05:46:15,871 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-8] [TYPE] outgoing [METHOD] POST [API_NAME] registerAgent [STATUS] SUCCESS
+2023-12-14 05:46:15,920 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-9] [TYPE] incoming [METHOD] GET [API_NAME] agentsGetAll 
+2023-12-14 05:46:15,922 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-9] [TYPE] outgoing [METHOD] GET [API_NAME] agentsGetAll [STATUS] SUCCESS
+2023-12-14 05:46:15,943 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-10] [TYPE] incoming [METHOD] GET [API_NAME] agentsGetAll 
+2023-12-14 05:46:15,946 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-10] [TYPE] outgoing [METHOD] GET [API_NAME] agentsGetAll [STATUS] SUCCESS
+2023-12-14 05:46:17,696 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-1] [TYPE] incoming [METHOD] GET [API_NAME] courierGetAll 
+2023-12-14 05:46:17,711 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-1] [TYPE] outgoing [METHOD] GET [API_NAME] courierGetAll [STATUS] SUCCESS
+2023-12-14 05:46:18,392 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-2] [TYPE] incoming [METHOD] GET [API_NAME] usersGetAll 
+2023-12-14 05:46:18,398 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-2] [TYPE] outgoing [METHOD] GET [API_NAME] usersGetAll [STATUS] SUCCESS
+2023-12-14 05:46:19,335 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-3] [TYPE] incoming [METHOD] GET [API_NAME] agentsGetAll 
+2023-12-14 05:46:19,335 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-3] [TYPE] outgoing [METHOD] GET [API_NAME] agentsGetAll [STATUS] SUCCESS
+2023-12-14 05:46:19,351 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-4] [TYPE] incoming [METHOD] GET [API_NAME] courierGetAll 
+2023-12-14 05:46:19,340 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-4] [TYPE] outgoing [METHOD] GET [API_NAME] courierGetAll [STATUS] SUCCESS
+2023-12-14 05:46:22,087 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-5] [TYPE] incoming [METHOD] GET [API_NAME] courierAssignAgent [AGENT_ID] 9 [ORDER_ID] 2
+2023-12-14 05:46:22,107 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-5] [TYPE] outgoing [METHOD] GET [API_NAME] courierAssignAgent [STATUS] SUCCESS
+2023-12-14 05:46:25,462 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-8] [TYPE] incoming [METHOD] GET [API_NAME] courierAssignAgent [AGENT_ID] 8 [ORDER_ID] 3
+2023-12-14 05:46:25,489 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-8] [TYPE] outgoing [METHOD] GET [API_NAME] courierAssignAgent [STATUS] SUCCESS
+2023-12-14 05:46:28,583 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-10] [TYPE] incoming [METHOD] GET [API_NAME] courierAssignAgent [AGENT_ID] 10 [ORDER_ID] 4
+2023-12-14 05:46:28,595 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-10] [TYPE] outgoing [METHOD] GET [API_NAME] courierAssignAgent [STATUS] SUCCESS
+2023-12-14 05:46:31,895 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-2] [TYPE] incoming [METHOD] GET [API_NAME] courierAssignAgent [AGENT_ID] 11 [ORDER_ID] 7
+2023-12-14 05:46:31,905 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-2] [TYPE] outgoing [METHOD] GET [API_NAME] courierAssignAgent [STATUS] SUCCESS
+2023-12-14 05:46:34,490 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-4] [TYPE] incoming [METHOD] GET [API_NAME] courierAssignAgent [AGENT_ID] 11 [ORDER_ID] 6
+2023-12-14 05:46:34,511 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-4] [TYPE] outgoing [METHOD] GET [API_NAME] courierAssignAgent [STATUS] SUCCESS
+2023-12-14 05:46:37,393 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-5] [TYPE] incoming [METHOD] GET [API_NAME] courierAssignAgent [AGENT_ID] 9 [ORDER_ID] 5
+2023-12-14 05:46:37,420 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-5] [TYPE] outgoing [METHOD] GET [API_NAME] courierAssignAgent [STATUS] SUCCESS
+2023-12-14 05:46:38,768 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-7] [TYPE] incoming [METHOD] GET [API_NAME] usersGetAll 
+2023-12-14 05:46:38,774 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-7] [TYPE] outgoing [METHOD] GET [API_NAME] usersGetAll [STATUS] SUCCESS
+2023-12-14 05:46:39,184 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-8] [TYPE] incoming [METHOD] GET [API_NAME] courierGetAll 
+2023-12-14 05:46:39,203 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-8] [TYPE] outgoing [METHOD] GET [API_NAME] courierGetAll [STATUS] SUCCESS
+2023-12-14 05:46:42,856 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-10] [TYPE] incoming [METHOD] GET [API_NAME] courierGetAll 
+2023-12-14 05:46:42,856 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-9] [TYPE] incoming [METHOD] GET [API_NAME] agentsGetAll 
+2023-12-14 05:46:42,858 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-9] [TYPE] outgoing [METHOD] GET [API_NAME] agentsGetAll [STATUS] SUCCESS
+2023-12-14 05:46:42,867 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-10] [TYPE] outgoing [METHOD] GET [API_NAME] courierGetAll [STATUS] SUCCESS
+2023-12-14 05:46:45,615 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-2] [TYPE] incoming [METHOD] GET [API_NAME] courierAssignAgent [AGENT_ID] 8 [ORDER_ID] 8
+2023-12-14 05:46:45,641 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-2] [TYPE] outgoing [METHOD] GET [API_NAME] courierAssignAgent [STATUS] SUCCESS
+2023-12-14 05:46:46,720 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-3] [TYPE] incoming [METHOD] GET [API_NAME] courierGetAll 
+2023-12-14 05:46:46,737 [INFO] com.courier.delivery.controllers.AdminController [http-nio-9090-exec-3] [TYPE] outgoing [METHOD] GET [API_NAME] courierGetAll [STATUS] SUCCESS

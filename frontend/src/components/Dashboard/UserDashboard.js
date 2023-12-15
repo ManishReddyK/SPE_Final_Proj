@@ -672,7 +672,7 @@ handlePayentModeInput=()=>{
                                             <button className="submitbtn1"
                                               onClick={(e) => this.handleSubmitDetailsPaymentDetails(e)}
                                             >Submit</button>
-                                            <button className="cancelbhn">Cancel</button>
+                                            <button className="cancelbhn">Finish</button>
                                           </div>
 
                                         </form>

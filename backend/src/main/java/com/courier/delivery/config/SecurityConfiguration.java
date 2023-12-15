@@ -1,7 +1,6 @@
 package com.courier.delivery.config;
 
 
-
 import com.courier.delivery.services.UserDetailsService;
 import com.courier.delivery.utils.JwtFilter;
 import org.springframework.beans.factory.annotation.Autowired;
