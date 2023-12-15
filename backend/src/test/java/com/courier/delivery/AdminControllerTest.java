@@ -63,7 +63,8 @@ public class AdminControllerTest {
         // Mocking behavior
         when(userDAO.existsByEmail(registerRequestDTO.getEmail())).thenReturn(false);
         when(passwordEncoder.encode(registerRequestDTO.getPassword())).thenReturn("encodedPassword");
-        when(userDetailsService.loadUserByUsername(registerRequestDTO.getEmail())).thenReturn(Mockito.mock(org.springframework.security.core.userdetails.UserDetails.class));
+        when(userDetailsService.loadUserByUsername(registerRequestDTO.getEmail())).thenReturn(
+            Mockito.mock(org.springframework.security.core.userdetails.UserDetails.class));
         when(jwtUtil.generateToken(any())).thenReturn("token");
 
         // Call the method

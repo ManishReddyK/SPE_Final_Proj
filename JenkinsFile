@@ -3,8 +3,6 @@ pipeline
     agent any
     environment
     {
-        // Path = "/usr/local/bin/minikube:${PATH}"
-        // registry = "akhiltavva/"
         registryCredential = "DockerHubCred"
         dockerImage = ""
     }
@@ -13,7 +11,7 @@ pipeline
         stage('Clone Git'){
             steps{
                 git branch: 'master',
-                url:'https://github.com/Akhil-Tavva/SPE-Final-Project.git'
+                url:'https://github.com/ManishReddyK/SPE_Final_Proj.git'
             }
         }
         stage('Build Frontend Image'){
@@ -21,9 +19,7 @@ pipeline
             {
                 dir("frontend/")
                 {
-                    // sh "npm install"
-                    // sh "npm run build"
-                    sh "docker build -t akhiltavva/frontend:latest ."
+                    sh "docker build -t manish3693/frontend:latest ."
                 }
             }
         }
@@ -33,7 +29,7 @@ pipeline
                 dir("backend/")
                 {
                     sh "mvn clean install"
-                    sh "docker build -t akhiltavva/backend:latest ."
+                    sh "docker build -t manish3693/backend:latest ."
                 }
             }
         }
@@ -45,7 +41,7 @@ pipeline
                 {
                     docker.withRegistry('', registryCredential)
                     {
-                        sh "docker push akhiltavva/frontend:latest"
+                        sh "docker push manish3693/frontend:latest"
                     }
                 }
             }
@@ -58,16 +54,35 @@ pipeline
                 {
                     docker.withRegistry('', registryCredential)
                     {
-                        sh "docker push akhiltavva/backend:latest"
+                        sh "docker push manish3693/backend:latest"
                     }
                 }
             }
         }
+        
+        stage('Testing') {
+            steps {
+                dir("backend") {
+                    // Run AdminControllerTest.java
+                    sh "mvn test -Dtest=AdminControllerTest"
+                    
+                    // Run CourierDeliveryApplicationTests.java
+                    sh "mvn test -Dtest=CourierDeliveryApplicationTests"
+                }
+            }
+        }
+
+        
         stage('Ansible Deployment'){
             steps{
-                script{
-                    sh 'ansible-playbook -i inventory playbook.yml'
-                }
+                ansiblePlaybook becomeUser: null,
+                colorized: true,
+                credentialsId: 'localhost',
+                disableHostKeyChecking: true,
+                installation: 'Ansible',
+                inventory: 'inventory',
+                playbook: 'playbook.yml',
+                sudoUser: null
             }
         }
     }
